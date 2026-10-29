@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="color-scheme" content="light dark">
+  <link rel="icon" href="assets/img/telesys-logo.png">
+  <title>Link Budget Rápido · Rascunho</title>
+  <meta name="description" content="Versão rápida para integradores: cenário, dispositivos, faixa, link budget, predição 2D/3D e pedido de orçamento em rascunho para a Telesys.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/app.css">
+  <link rel="stylesheet" href="assets/css/lite.css">
+  <script type="importmap">
+  { "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+  } }
+  </script>
+</head>
+<body class="lite">
+  <header class="l-top">
+    <div class="l-bar">
+      <div class="l-in">
+        <img src="assets/img/telesys-logo.png" alt="Telesys" class="l-logo" width="126" height="48">
+        <div class="l-app"><b>Link Budget Tool</b><small>para integradores</small></div>
+        <span class="rasc">RASCUNHO</span>
+      </div>
+    </div>
+    <nav class="l-prog" id="prog" aria-label="Passos"></nav>
+  </header>
+  <div class="l-wrap">
+    <main id="corpo"></main>
+
+    <footer class="l-nav">
+      <button type="button" id="voltar" class="btn">← Voltar</button>
+      <div class="l-res" id="resumo"></div>
+      <button type="button" id="avancar" class="btn pri">Próximo →</button>
+    </footer>
+    <div class="l-links"><button type="button" class="lnk" data-act="abrirProj">Abrir projeto</button><span>·</span><a href="index.html">Planejador completo</a><span>·</span><button type="button" class="lnk" id="temaBtn">Tema: automático</button><span>·</span><button type="button" class="lnk" data-act="reset">Recomeçar</button></div>
+    <input type="file" id="projIn" accept=".json,application/json" hidden>
+  </div>
+
+  <div id="parque" hidden><div id="lbox3d"></div></div>
+  <div id="folha"></div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/rf.js"></script>
+  <script src="assets/js/charts.js"></script>
+  <script src="assets/js/cover.js"></script>
+  <script src="assets/js/view3d.js"></script>
+  <script src="assets/js/lite.js"></script>
+  <script type="module">
+    import * as THREE from 'three';
+    import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+    window.THREE = THREE;
+    window.THREE_OrbitControls = OrbitControls;
+    window.dispatchEvent(new Event('three-ready'));
+  </script>
+</body>
+</html>
